@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthAgent - AI Assistant</title>
+    <script type="module" src="/src/main.jsx"></script>
+     <script>
+      window.wxOConfiguration = {
+        orchestrationID: "4f0a62682fa846b78f4b99a4a458d11b_5c1395c8-c8c5-4300-b6dd-01283d381814",
+        hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
+        rootElementID: "root",                          // Renders chat here
+        showLauncher: true,
+        deploymentPlatform: "ibmcloud",
+        crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/4f0a62682fa846b78f4b99a4a458d11b:5c1395c8-c8c5-4300-b6dd-01283d381814::",
+        chatOptions: {
+          agentId: "c6caa693-4e07-4acc-a64e-e3aa37f0f2cf",
+          agentEnvironmentId: "70bffc96-e9d6-40e3-92ef-e0a30e3c2a74"
+        },
+        layout: {
+          form: "float",
+          width: "400px",
+          height: "600px",
+          showOrchestrateHeader: false
+        },
+        style: {
+          headerColor: "#1f2937",
+          userMessageBackgroundColor: "#219ec8", // Blue user bubbles
+          primaryColor: "#2563eb",              // Blue buttons
+          agentMessageBackgroundColor: "#f8fafc"
+        }
+      };
+
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js`;
+        script.onload = () => {
+        wxoLoader.init();
+        // immediately hide float
+        wxoLoader.hideLauncher();
+      };
+        document.head.appendChild(script);
+      }, 0);
+
+      // --- Toggle Functions: Fullscreen chat <-> React App ---
+      function openFullscreenChat() {
+        wxoLoader.updateConfiguration({
+        layout: { form: "fullscreen-overlay" }
+        });
+        wxoLoader.show();
+        document.getElementById("app").style.display = "none";
+        document.body.style.overflow = "hidden"
+      }
+      function closeFullscreenChat() {
+        wxoLoader.hide();
+        document.getElementById("root").style.display = "none";
+        document.getElementById("app").style.display = "block";
+        document.body.style.overflow="";
+        wxoLoader.updateConfiguration({
+       layout: { form: "float" }
+    });
+      }
+      // To auto-open chat on load, uncomment the next line:
+      // window.onload = openFullscreenChat;
+      // Expose to global so React can call them
+      window.openFullscreenChat = openFullscreenChat;
+      window.closeFullscreenChat = closeFullscreenChat;
+      
+    </script>
+    
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <!-- Chat container -->
+    <div id="root"></div>
+
+    <!-- Your React application mounts here -->
+    <div id="app" class="flex-1"></div>
+
+    <!-- Vite React entry point -->
+    <script type="module" src="/src/main.jsx"></script>
+    
+  </body>
+</html>
