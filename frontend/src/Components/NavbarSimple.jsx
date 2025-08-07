@@ -74,7 +74,7 @@ export function NavbarSimple() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          Hospital Agent
+          Hospital AI Agent
         </Typography>
 
         <div className="hidden lg:block">
