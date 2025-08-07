@@ -37,12 +37,12 @@ function NavList() {
         className="p-1 font-medium"
       >
         <a
-          href="#"
+          href="https://github.com/Aaditya-0701/symptoms-agent-project"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center transition-colors cursor-pointer hover:text-blue-500"
         >
-          Docs
+          Github
         </a>
       </Typography>
     </ul>
