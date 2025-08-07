@@ -1,0 +1,11 @@
+spec_version: v1
+kind: native
+name: Mental_Health_Agent
+description: Addresses mental-health symptoms and connects to a mental-health professional.
+instructions: >
+  1. Receive user_name and symptoms.
+  2. Call contact_doctor(user_name, "Mental", symptoms).
+tools:
+  - contact_doctor
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: default
