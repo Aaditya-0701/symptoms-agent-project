@@ -277,7 +277,7 @@ function ImageCarouselSection({ className = "" }) {
 
             {/* Professional Copy */}
             <h3 className="mb-3 text-2xl font-bold text-white">
-              AI Health Assistant
+             Healer AI - Health Assistant
             </h3>
             <p className="mb-6 leading-relaxed text-white">
               Get instant, personalized health guidance powered by IBM Watson Orchestrate. 

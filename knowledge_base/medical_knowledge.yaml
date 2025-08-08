@@ -1,0 +1,32 @@
+spec_version: v1
+kind: knowledge_base
+name: medical_symptom_knowledge
+description: "Medical knowledge base for symptom classification and health awareness"
+
+sources:
+  - type: medical_guidelines
+    description: "Clinical decision support guidelines"
+    files:
+      - "emergency_symptoms_guide.pdf"
+      - "mental_health_screening_criteria.pdf"
+      - "general_medicine_protocols.pdf"
+  
+  - type: health_awareness
+    description: "Public health and environmental health information"
+    files:
+      - "air_quality_health_impacts.pdf"
+      - "disease_prevention_guidelines.pdf"
+      - "seasonal_health_alerts.pdf"
+
+search_configuration:
+  chunk_size: 1000
+  chunk_overlap: 200
+  retrieval_method: "semantic_search"
+  max_results: 5
+  
+indexing:
+  update_frequency: "daily"
+  auto_refresh: true
+  content_filters:
+    - medical_terminology_extraction
+    - symptom_pattern_recognition

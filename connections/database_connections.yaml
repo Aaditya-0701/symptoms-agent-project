@@ -1,0 +1,45 @@
+spec_version: '1.0'
+kind: ConnectionSpecification
+
+connections:
+
+  medical-db:
+    type: key_value
+    description: "Medical knowledge and classification database"
+    required_keys:
+      - api_url
+      - api_key
+      - database_name
+
+  hospital_system:
+    type: key_value
+    description: "Hospital management system integration"
+    required_keys:
+      - api_url
+      - api_key
+      - hospital_id
+
+  notification_service:
+    type: key_value
+    description: "Multi-channel notification service"
+    required_keys:
+      - api_url
+      - api_key
+      - service_provider
+
+  logging_system:
+    type: key_value
+    description: "Compliance and audit logging system"
+    required_keys:
+      - api_url
+      - api_key
+      - retention_policy
+
+  health_alerts_api:
+    type: key_value
+    description: "Health alerts and environmental data API"
+    required_keys:
+      - air_quality_url
+      - air_quality_key
+      - health_alerts_url
+      - health_alerts_key
